@@ -12,9 +12,9 @@ from torchmetrics.image import StructuralSimilarityIndexMeasure
 # Configuration
 # ======================================================
 
-MODEL_PATH = r"resume_training\two-stage training\day 5\best_generator.pth"
+MODEL_PATH = r"srgan_generator.pth"
 
-VALID_FOLDER = r"DIV2K_valid_HR"
+VALID_FOLDER = r"..."
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
