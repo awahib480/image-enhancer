@@ -1,3 +1,7 @@
+# Script to infer images from INPUT_FOLDER and save to OUTPUT_FOLDER using MODEL_PATH
+# Generator must be imported
+# Writes results to a .csv file
+
 import csv
 from pathlib import Path
 
@@ -18,7 +22,7 @@ from torchvision.transforms.functional import to_pil_image, to_tensor
 # Configuration — change these paths
 # ============================================================
 
-MODEL_PATH = Path(r"resume_training\two-stage training\day 5\best_generator.pth")
+MODEL_PATH = Path(r"srgan_generator.pth")
 IMAGE_FOLDER = Path(r"test images")
 OUTPUT_FOLDER = Path(r"tested images")
 
