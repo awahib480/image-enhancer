@@ -1,3 +1,6 @@
+# Script to infer and evaluate the images using DEBLUR MODEL, takes images from INPUT_FOLDER and saves them to OUTPUT_FOLDER after inferring from the model
+# Deblur generator must be imported
+
 from generator import *
 
 import os
@@ -43,7 +46,7 @@ GROUND_TRUTH_FOLDER = None
 
 
 # Best trained generator
-MODEL_PATH = r"deblur\new training\epoch 151 to 200\best_generator.pth"
+MODEL_PATH = r"deblur_generator.pth"
 
 
 # Folder where deblurred images will be saved
