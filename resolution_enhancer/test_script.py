@@ -1,3 +1,5 @@
+# Script to validate model on images
+
 import os
 import torch
 import torch.nn.functional as F
