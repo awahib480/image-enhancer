@@ -1,6 +1,8 @@
+--- Deblur Training Log ---
+
 ----------------------------------------------------
 Day 1
-Time: 3h 40m
+Approx. Time: 3h 40m
 ----------------------------------------------------
 
 Epoch [1/100]: 100%
@@ -269,7 +271,7 @@ Best Val Loss : 0.110732
 
 ----------------------------------------------------
 Day 2
-Time: 3h 15m
+Approx. Time: 3h 15m
 ----------------------------------------------------
 
 Epoch [26/100]: 100%
@@ -499,7 +501,7 @@ Best Val Loss : 0.108064
 
 ----------------------------------------------------
 Day 3
-Time: 3h 30m
+Approx. Time: 3h 30m
 ----------------------------------------------------
 
 Epoch [48/100]: 100%
@@ -740,7 +742,7 @@ Best Val Loss : 0.105514
 
 ----------------------------------------------------
 Day 4
-Time: 4h 40m
+Approx. Time: 4h 40m
 ----------------------------------------------------
 
 Epoch [71/100]: 100%
@@ -1056,7 +1058,7 @@ Final Generator: /kaggle/working/Deblur_Resume/final_generator.pth
 
 ----------------------------------------------------
 Day 5
-Time: 7h 20m
+Approx. Time: 7h 20m
 ----------------------------------------------------
 
 Epoch [101/150]: 100%
@@ -1580,7 +1582,7 @@ Final Generator: /kaggle/working/Deblur_Resume/final_generator.pth
 
 ----------------------------------------------------
 Day 6
-Time: 7h 10m
+Approx. Time: 7h 10m
 ----------------------------------------------------
 
 Epoch [151/200]: 100%
@@ -2097,6 +2099,3 @@ Best Val Loss : 0.093400
 Training Completed.
 Best Generator : /kaggle/working/Deblur_Resume/best_generator.pth
 Final Generator: /kaggle/working/Deblur_Resume/final_generator.pth
-
-
-
