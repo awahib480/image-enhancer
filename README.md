@@ -1,6 +1,6 @@
 # Image Resolution Enhancement and Deblurring
 
-A deep learning project for improving image quality through super-resolution and image deblurring. The repository contains two trained models, evaluation scripts, and instructions for downloading model checkpoints and reproducing evaluations.
+A deep learning project for improving image quality through super-resolution and image deblurring. The repository contains two trained models, evaluation scripts and instructions for downloading model checkpoints and reproducing evaluations.
 
 The project focuses on two image restoration tasks:
 
@@ -150,7 +150,7 @@ Refer to the training notebook and configuration files for the exact implementat
 
 Download the resolution enhancement checkpoint from:
 
-**[Resolution Enhancer Model Release](REPLACE_WITH_RESOLUTION_MODEL_RELEASE_URL)**
+**[Resolution Enhancer Model Release]([https://github.com/awahib480/image-enhancer/releases/tag/v1.0])**
 
 The release should contain the trained generator weights and, where applicable, the associated configuration or checkpoint metadata.
 
@@ -197,7 +197,7 @@ Refer to the dataset documentation and the training notebook for the exact prepr
 
 Download the deblurring checkpoint from:
 
-**[Deblurring Model Release](REPLACE_WITH_DEBLURRING_MODEL_RELEASE_URL)**
+**[Deblurring Model Release]([https://github.com/awahib480/image-enhancer/releases/tag/v1.0])**
 
 The release should include the trained weights and any configuration required to reconstruct the model for inference.
 
@@ -211,18 +211,16 @@ The models use different datasets because super-resolution and deblurring involv
 
 | Dataset | Purpose | Official Resource |
 |---|---|---|
-| DIV2K | High-resolution images for super-resolution training | [DIV2K Dataset](https://data.vision.ee.ethz.ch/cvl/DIV2K/) |
-| Flickr2K | Additional high-resolution training images | [Flickr2K Dataset](REPLACE_WITH_FLICKR2K_DATASET_URL) |
+| DIV2K | High-resolution images for super-resolution training | [DIV2K Dataset](https://www.kaggle.com/datasets/joe1995/div2k-dataset) |
+| Flickr2K | Additional high-resolution training images | [Flickr2K Dataset](https://www.kaggle.com/datasets/daehoyang/flickr2k) |
 
 **Dataset preparation:** High-resolution images are downsampled to generate low-resolution counterparts. These paired images are then used to train the super-resolution network.
-
-Record the downsampling method, scale factor, image crop size and any augmentation settings in the training configuration.
 
 ### Deblurring Dataset
 
 | Dataset | Purpose | Official Resource |
 |---|---|---|
-| RealBlur-J | Real-world blurred and sharp image pairs | [RealBlur Dataset](REPLACE_WITH_REALBLUR_DATASET_URL) |
+| RealBlur-J and GoPro | Real-world and GoPro blurred and sharp image pairs | [RealBlur and GoPro Dataset](https://www.kaggle.com/datasets/jishnuparayilshibu/a-curated-list-of-image-deblurring-datasets) |
 
 **Dataset preparation:** Blurred images are paired with their corresponding sharp reference images. The model is trained to restore the sharp image from the blurred input.
 
@@ -234,9 +232,9 @@ Users must obtain the datasets from their respective sources and comply with the
 
 **Training dataset links and references:**
 
-- DIV2K: `REPLACE_WITH_DATASET_LINK`
-- Flickr2K: `REPLACE_WITH_DATASET_LINK`
-- RealBlur-J: `REPLACE_WITH_DATASET_LINK`
+- DIV2K: `https://www.kaggle.com/datasets/joe1995/div2k-dataset`
+- Flickr2K: `https://www.kaggle.com/datasets/daehoyang/flickr2k`
+- RealBlur-J: `https://www.kaggle.com/datasets/jishnuparayilshibu/a-curated-list-of-image-deblurring-datasets`
 
 ---
 
@@ -250,7 +248,7 @@ Both models were trained using Kaggle notebooks and GPU-backed compute resources
 | Framework | PyTorch |
 | Hardware | Kaggle GPU environment |
 | Resolution training data | DIV2K and Flickr2K |
-| Deblurring training data | RealBlur-J |
+| Deblurring training data | RealBlur-J and GoPro|
 | Model distribution | GitHub Releases |
 | Evaluation | Python-based evaluation scripts |
 
@@ -258,10 +256,10 @@ The exact GPU model, CUDA version, PyTorch version, training duration and hyperp
 
 ### Training References
 
-- **Resolution enhancer notebook:** `REPLACE_WITH_KAGGLE_NOTEBOOK_URL`
-- **Deblurring notebook:** `REPLACE_WITH_KAGGLE_NOTEBOOK_URL`
+- **Resolution enhancer notebook:** `https://www.kaggle.com/code/abdulwahib480/image-res`
+- **Deblurring notebook:** `https://www.kaggle.com/code/abdulwahib480/deblur`
 
-Training notebooks may contain dataset preparation, model initialization, training loops, validation procedures and checkpoint selection.
+Training notebooks contain dataset preparation, model initialization, training loops, validation procedures and checkpoint selection.
 
 The trained checkpoints distributed in Releases allow users to evaluate the models without repeating the full training process.
 
@@ -279,8 +277,8 @@ The trained checkpoints distributed in Releases allow users to evaluate the mode
 ### Clone the Repository
 
 ```bash
-git clone REPLACE_WITH_GITHUB_REPOSITORY_URL
-cd image-resolution-enhancer
+git clone https://www.github.com/awahib480/image-enhancer
+cd image-enhancer
 ```
 
 ### Create a Virtual Environment
@@ -307,38 +305,24 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-The dependency file should specify the libraries required by the actual implementation, including PyTorch, torchvision, NumPy, Pillow and any additional image processing or evaluation packages.
-
-For reproducible results, pin dependency versions and document the tested Python and PyTorch environments.
-
 ---
 
 ## Downloading Model Checkpoints
 
 Trained weights are provided through GitHub Releases rather than being stored directly in the source repository.
 
-### Available Models
+### Available Model Checkpoints
 
 | Model | Release Asset | Purpose |
 |---|---|---|
-| Resolution Enhancer | `REPLACE_WITH_GENERATOR_CHECKPOINT_FILENAME` | Super-resolution inference |
-| Deblurring Model | `REPLACE_WITH_DEBLURRING_CHECKPOINT_FILENAME` | Image deblurring inference |
+| Resolution Enhancer | `https://github.com/awahib480/image-enhancer/releases/download/v1.0/srgan_resume_checkpoint.pth` | Super-resolution inference |
+| Deblurring Model | `https://github.com/awahib480/image-enhancer/releases/download/v1.0/deblur_resume_checkpoint.pth` | Image deblurring inference |
 
 Download the appropriate checkpoint from the repository's Releases page:
 
-**[View All Model Releases](REPLACE_WITH_GITHUB_RELEASES_URL)**
+**[View All Model Releases](https://github.com/awahib480/image-enhancer/releases)**
 
 After downloading the files, place them in the locations expected by the corresponding inference and evaluation scripts.
-
-For example:
-
-```text
-checkpoints/
-├── resolution_generator.pth
-└── deblurring_model.pth
-```
-
-This directory is illustrative. Use the actual checkpoint filenames and paths expected by your scripts.
 
 ### Checkpoint Compatibility
 
@@ -355,38 +339,9 @@ For PyTorch checkpoints, load trusted model files only. If the checkpoint contai
 
 ## Evaluation
 
-Evaluation scripts are provided to measure model performance on held-out image pairs.
-
-The scripts should support quantitative evaluation and, where implemented, visual comparison between the input, prediction and reference images.
+Evaluation scripts are provided to measure model performance on image pairs.
 
 ### 1. Evaluate the Resolution Enhancer
-
-Example command:
-
-```bash
-python resolution_enhancer/evaluate.py \
-    --weights checkpoints/resolution_generator.pth \
-    --data REPLACE_WITH_VALIDATION_DATA_PATH \
-    --scale 2
-```
-
-For other enhancement factors:
-
-```bash
-python resolution_enhancer/evaluate.py \
-    --weights checkpoints/resolution_generator.pth \
-    --data REPLACE_WITH_VALIDATION_DATA_PATH \
-    --scale 4
-```
-
-```bash
-python resolution_enhancer/evaluate.py \
-    --weights checkpoints/resolution_generator.pth \
-    --data REPLACE_WITH_VALIDATION_DATA_PATH \
-    --scale 8
-```
-
-These commands illustrate the intended interface. Replace the arguments with those supported by the actual evaluation script.
 
 The evaluation procedure should:
 
@@ -399,14 +354,6 @@ The evaluation procedure should:
 Use the same reference images, image range, color space and metric implementation when comparing different enhancement factors.
 
 ### 2. Evaluate the Deblurring Model
-
-Example command:
-
-```bash
-python deblurring/evaluate.py \
-    --weights checkpoints/deblurring_model.pth \
-    --data REPLACE_WITH_REALBLUR_TEST_PATH
-```
 
 The deblurring evaluation procedure should:
 
