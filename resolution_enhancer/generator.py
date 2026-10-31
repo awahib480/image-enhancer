@@ -1,3 +1,5 @@
+# Generator architecture must be imported to infer
+
 import torch
 import torch.nn as nn
 
@@ -206,6 +208,8 @@ class Generator(nn.Module):
         return x
     
 '''
+Test
+-----------------------
 generator = Generator()
 lr = torch.randn(1, 3, 96, 96)
 hr = generator(lr)
