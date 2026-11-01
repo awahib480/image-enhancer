@@ -59,14 +59,14 @@ image-enhancer/
 │
 ├── resolution_enhancer/
 │   ├── generator.py
-│   ├── infer_and_evaluate_images.py
+│   ├── evaluate_images.py
 │   └── test_script.py
 |   |__ training_log.txt
 │
 ├── deblur/
 │   ├── generator.py
 │   ├── evaluate_images.py
-|   |__ evaluate_deblur.py
+|   |__ evaluate_deblur_model.py
 │   └── training_log.txt
 │
 ├── notebooks/
