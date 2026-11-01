@@ -7,8 +7,6 @@ The project focuses on two image restoration tasks:
 - **Image Super-Resolution:** Enhances image resolution using a Super-Resolution Generative Adversarial Network (SRGAN).
 - **Image Deblurring:** Restores sharpness and image details in blurred images using a trained deep learning model.
 
-Model checkpoints are distributed through GitHub Releases to keep large binary files separate from the source code.
-
 ---
 
 ## Table of Contents
@@ -53,8 +51,6 @@ The two models are trained and evaluated independently. They address different t
 
 ## Repository Structure
 
-The repository is organized to separate model implementations, evaluation utilities, datasets documentation and trained checkpoints.
-
 ```text
 image-enhancer/
 │
@@ -69,7 +65,8 @@ image-enhancer/
 │
 ├── deblur/
 │   ├── generator.py
-│   ├── infer_and_evaluate_images.py
+│   ├── evaluate_images.py
+|   |__ evaluate_deblur.py
 │   └── training_log.txt
 │
 ├── notebooks/
@@ -135,23 +132,18 @@ A separate validation set containing 100 samples was retained for model evaluati
 
 #### Training Objective
 
-SRGAN training combines adversarial learning with reconstruction-oriented objectives. The exact loss functions and weights should be documented in the training configuration.
+SRGAN training combines adversarial learning with reconstruction-oriented objectives. Following loss functions are used:
 
-Typical SRGAN implementations may use:
-
-- Pixel or reconstruction loss
-- Perceptual loss
-- Adversarial loss
-
-Refer to the training notebook and configuration files for the exact implementation used in this project.
+- Reconstruction (L1) loss and SRGAN loss
+- Content / Perceptual loss (compare feature maps using VGG Feature Extractor)
+- Adversarial loss (for generator)
+- Discriminator loss (for discriminator)
 
 #### Model Checkpoint
 
 Download the resolution enhancement checkpoint from:
 
 **[Resolution Enhancer Model Release]([https://github.com/awahib480/image-enhancer/releases/tag/v1.0])**
-
-The release should contain the trained generator weights and, where applicable, the associated configuration or checkpoint metadata.
 
 ---
 
@@ -163,7 +155,7 @@ The model learns a mapping between blurred input images and their corresponding 
 
 #### Processing Pipeline
 
-The general inference pipeline consists of:
+The inference pipeline consists of:
 
 1. Load a blurred image.
 2. Apply the preprocessing operations expected by the trained model.
@@ -171,34 +163,30 @@ The general inference pipeline consists of:
 4. Convert the model output into an image.
 5. Save the restored image for visual inspection or quantitative evaluation.
 
-The exact architecture, input dimensions, normalization scheme and output processing should match the implementation associated with the released checkpoint.
-
 #### Training Data
 
-The deblurring model was trained using the RealBlur-J dataset.
+The deblurring model was trained using the RealBlur-J and GoPro dataset.
 
-RealBlur provides real-world blurred and sharp image pairs for image deblurring research. The J variant is used for this project.
+RealBlur-J provides real-world blurred and sharp image pairs for image deblurring research. The J variant is used for this project.
 
-The dataset split used in the training workflow is:
+GoPro was also used for this project.
+
+The total dataset split used in the training workflow is:
 
 | Split | Number of Samples |
 |---|---:|
-| Training | 686 |
-| Validation | 147 |
-| Testing | 147 |
-| **Total** | **980** |
+| Training pairs | 2578 |
+| Validation pairs | 357 |
+| Test pairs | 1258 |
+| **Total pairs** | **4193** |
 
-The training and validation splits are used for model optimization and checkpoint selection. The test split should be reserved for final evaluation and should not be used for training or model selection.
-
-Refer to the dataset documentation and the training notebook for the exact preprocessing and data-loading procedure.
+The test split should be reserved for final evaluation and should not be used for training or model selection.
 
 #### Model Checkpoint
 
 Download the deblurring checkpoint from:
 
 **[Deblurring Model Release]([https://github.com/awahib480/image-enhancer/releases/tag/v1.0])**
-
-The release should include the trained weights and any configuration required to reconstruct the model for inference.
 
 ---
 
@@ -260,8 +248,6 @@ The exact GPU model, CUDA version, PyTorch version, training duration and hyperp
 
 Training notebooks contain dataset preparation, model initialization, training loops, validation procedures and checkpoint selection.
 
-The trained checkpoints distributed in Releases allow users to evaluate the models without repeating the full training process.
-
 ---
 
 ## Installation
@@ -269,6 +255,8 @@ The trained checkpoints distributed in Releases allow users to evaluate the mode
 ### Prerequisites
 
 Refer to requirements.txt
+
+Link: https://github.com/awahib480/image-enhancer/blob/main/requirements.txt
 
 ### Clone the Repository
 
@@ -329,7 +317,7 @@ Before loading a checkpoint, ensure that:
 - The preprocessing and normalization steps are compatible.
 - The inference script uses the correct device and tensor dimensions.
 
-For PyTorch checkpoints, load trusted model files only. If the checkpoint contains a model state dictionary, initialize the corresponding model architecture and load its weights rather than assuming the file contains a complete serialized model.
+If the checkpoint contains a model state dictionary, initialize the corresponding model architecture and load its weights rather than assuming the file contains a complete serialized model.
 
 ---
 
@@ -366,8 +354,6 @@ Ensure that the test set is used only for final evaluation and that each predict
 
 ## Evaluation Metrics
 
-The models can be evaluated using Peak Signal-to-Noise Ratio (PSNR) and Structural Similarity Index Measure (SSIM).
-
 ### Peak Signal-to-Noise Ratio (PSNR)
 
 PSNR measures the difference between a reconstructed image and its reference image using mean squared error.
@@ -397,13 +383,13 @@ For this reason, quantitative metrics should be complemented by visual compariso
 
 #### Resolution Enhancer
 
-Results are available here:
+Resolution enhancement results are available here:
 
 https://github.com/awahib480/image-enhancer/tree/main/results/resolution_enhancer
 
 #### Deblurring
 
-Results are available here:
+Deblurring results are available here:
 
 https://github.com/awahib480/image-enhancer/tree/main/results/deblurring
 
