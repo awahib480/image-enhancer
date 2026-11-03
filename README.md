@@ -143,7 +143,7 @@ SRGAN training combines adversarial learning with reconstruction-oriented object
 
 Download the resolution enhancement checkpoint from:
 
-**[Resolution Enhancer Model Release]([https://github.com/awahib480/image-enhancer/releases/tag/v1.0])**
+https://github.com/awahib480/image-enhancer/releases/tag/v1.0
 
 ---
 
@@ -186,7 +186,7 @@ The test split should be reserved for final evaluation and should not be used fo
 
 Download the deblurring checkpoint from:
 
-**[Deblurring Model Release]([https://github.com/awahib480/image-enhancer/releases/tag/v1.0])**
+https://github.com/awahib480/image-enhancer/releases/tag/v1.0
 
 ---
 
@@ -219,9 +219,9 @@ Users must obtain the datasets from their respective sources and comply with the
 
 **Training dataset links and references:**
 
-- DIV2K: `https://www.kaggle.com/datasets/joe1995/div2k-dataset`
-- Flickr2K: `https://www.kaggle.com/datasets/daehoyang/flickr2k`
-- RealBlur-J: `https://www.kaggle.com/datasets/jishnuparayilshibu/a-curated-list-of-image-deblurring-datasets`
+- DIV2K: https://www.kaggle.com/datasets/joe1995/div2k-dataset
+- Flickr2K: https://www.kaggle.com/datasets/daehoyang/flickr2k
+- RealBlur-J: https://www.kaggle.com/datasets/jishnuparayilshibu/a-curated-list-of-image-deblurring-datasets
 
 ---
 
@@ -243,8 +243,8 @@ The exact GPU model, CUDA version, PyTorch version, training duration and hyperp
 
 ### Training References
 
-- **Resolution enhancer notebook:** `https://www.kaggle.com/code/abdulwahib480/image-res`
-- **Deblurring notebook:** `https://www.kaggle.com/code/abdulwahib480/deblur`
+- **Resolution enhancer notebook:** https://www.kaggle.com/code/abdulwahib480/image-res
+- **Deblurring notebook:** https://www.kaggle.com/code/abdulwahib480/deblur
 
 Training notebooks contain dataset preparation, model initialization, training loops, validation procedures and checkpoint selection.
 
